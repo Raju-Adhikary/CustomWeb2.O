@@ -5,17 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>button pack 001</title>
     <style type="text/css" media="all">
+    h3{
+        margin: 0px;
+        padding: 0px;
+    }
+    body{
+        /* background-image: url('https://source.unsplash.com/381x845?computer'); */
+        background-repeat: no-repeat;
+    }
     button{
-        border: 5px solid #00F1;
         padding: 9px;
         margin: 5px;
-        border-radius: 10%;
+        border-radius: 5%;
+        border: .1px solid #00f;
     }
     button.inline{
         display: inline-block;
     }
     button.block{
         display: block;
+    }
+    button:hover{
+        filter: drop-shadow(2px 2px 2px gray);
     }
     .btn1{
         background-color: red;
@@ -26,6 +37,11 @@
     .btn3{
         background-color: blue;
     }
+    .btn5 span {
+        font-size: 1.5rem;
+        display: block;
+        font-weight: bold;
+    }
     </style>
 </head>
 <body>
@@ -35,7 +51,7 @@
     <button class="btn2 inline">button2</button>
     <button class="btn3 inline">button3</button>
     <button class="btn4 inline">button4</button>
-    <button class="btn5 inline">button5 Lorem ipsum dolor sit.</button>
+    <button class="btn5 inline"><span>Lorem ipsum dolor sit amet.</span>button5 Lorem </button>
     <div>block</div>
     <button class="btn1 block">button1</button>
     <button class="btn2 block">button2</button>
