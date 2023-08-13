@@ -11,6 +11,9 @@
         a {
             text-decoration: none;
         }
+        h1 {
+            margin: 50px;
+        }
         .nav-container {
             width: 100%;
             height: 100%;
@@ -21,50 +24,39 @@
             position: fixed;
             left: 0;
             top: 0;
-            transition: all 0.5s ease-out;
-            background-color: white;
+            transform: translateX(0);
+            transition: transform .5s ease;
+            background-color: #fff;
             overflow: scroll;
         }
         .nav-menu:not([open]) {
-            display: none;
-            transition: all 0.5s ease-out;
+            transform: translateX(-105%);
         }
         .nav-menu ul {
             list-style: none;
-            padding: 0px;
-        }
-        .nav-menu ul {
-            padding-left: 10px;
+            padding: 15px;
         }
         .nav-menu li {
             padding: 15px;
             border-bottom: 0.6px solid gray;
         }
-        .nav-menu ul ul > li:not(:first-child) {
-            margin-left: 10px;
-        }
-        .nav-menu ul ul>li:not(:first-child):before {
+        .nav-menu ul ul li:before {
             content: '• ';
         }
-
-        .nav-menu ul>ul ,
         .nav-menu a
         {
             color: black;
         }
-        .nav-menu ul>ul:not([open]) > :not(.summary) {
+        .nav-menu ul>li:not([open])>ul {
             display: none;
         }
-        .nav-menu ul>ul>.summary:hover {
-            color: #b0b;
-        }
-        .nav-menu ul>ul[open]>.summary::after {
+        .nav-menu ul li[open]>span::after {
             color: red;
             right: 10%;
             position: absolute;
             content: "\25b2";
         }
-        .nav-menu ul>ul>.summary::after {
+        .nav-menu ul li>span::after {
             color: red;
             right: 10%;
             position: absolute;
@@ -78,22 +70,22 @@
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
-            <ul>
-                <li class="summary">
-                    hello..
-                </li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+            <li>
+                <span>Hello..</span>
                 <ul>
-                    <li class="summary">
-                        hello..
-                    </li>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
+                    <li>
+                        <span>hello..</span>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </li>
                 </ul>
-            </ul>
+            </li>
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>
@@ -101,22 +93,22 @@
     <ul>
         <li><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
-        <ul>
-            <li class="summary">
-                hello..
-            </li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+        <li class="summary">
+            hello..
             <ul>
-                <li class="summary">
-                    hello..
-                </li>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
+                <li class="summary">
+                    hello..
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </li>
             </ul>
-        </ul>
+        </li>
         <li><a href="#">Contact</a></li>
     </ul>
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, veritatis, provident. Nihil dignissimos culpa molestias ad ducimus quas fugiat quis nam quae dolorum, expedita libero cumque ex natus hic asperiores ea officiis cum excepturi omnis magnam ut rem dolore. Officiis debitis architecto vel ratione, hic, voluptatem pariatur ea, cumque eveniet delectus iusto magnam soluta incidunt recusandae odit nobis impedit corporis ipsa natus deleniti. Eos, rerum ea earum aspernatur repellendus a dolorum voluptatum quidem officia, nostrum deserunt magni laudantium et, cum nam provident assumenda aperiam error in ipsum blanditiis odio rem at. Nam, veniam dolore molestias qui ratione corporis atque, unde voluptatum natus soluta doloremque dignissimos, eius. Unde ut at aut sed, quis, voluptas, molestiae tempore odio nobis dolore id beatae eligendi. Corrupti eos laboriosam et itaque nulla sint sequi maiores aperiam soluta, recusandae perspiciatis earum, obcaecati fugiat dicta nostrum expedita molestias deleniti quae exercitationem facilis culpa quisquam repellendus sapiente. Rem reprehenderit architecto fugit repellendus laboriosam ipsum, maxime, ea inventore molestiae iste ullam, numquam nesciunt quibusdam sed repellat autem sit sapiente ducimus voluptatum impedit illum. Officiis excepturi asperiores tenetur dolor esse modi consequuntur dicta natus at dolore, veniam quo molestiae? Voluptatem vitae, a minus eum officia. Possimus, sint ducimus, minima eaque facilis, fuga eveniet totam nam reiciendis explicabo soluta quasi nesciunt optio quos maiores deleniti quibusdam vitae veritatis. Odio excepturi consectetur aut tempore, quasi aspernatur laboriosam odit adipisci cupiditate enim recusandae doloribus repellendus voluptatem sint, optio quod eius, tenetur similique aliquid iste. Minus dolores nemo corporis illum ipsa ducimus ipsum non incidunt, cum quas. Facere amet eveniet architecto odio dolorem provident, libero nesciunt officia iure, beatae sed fuga aliquam nemo dolore nihil laboriosam fugiat, necessitatibus ipsum deserunt in inventore? Quidem facilis in error soluta, recusandae repellendus non sunt aut pariatur eum ipsum architecto, saepe laudantium alias molestiae, perspiciatis illo eligendi laboriosam. Ducimus, cumque voluptate doloribus, error vitae molestias animi rerum voluptates nam pariatur, fuga quae accusamus soluta minima architecto, quod ut. Laboriosam porro, blanditiis sint iste veniam delectus dolore maiores accusamus nobis fuga nostrum est provident esse repellat, maxime totam. Nostrum voluptas magni error, veritatis eveniet omnis ex distinctio in amet, dolore aspernatur ratione delectus beatae ipsum autem? Cum consequatur suscipit recusandae ullam error ab quae, rem a optio fuga quis nesciunt quam iste, maiores consectetur labore possimus illo repudiandae aspernatur in delectus debitis atque. Laboriosam aut beatae, laudantium sunt in debitis, ad earum dicta. Totam temporibus sapiente, distinctio. Quia quas, nesciunt velit id commodi soluta nam veniam doloribus, minus repudiandae, aperiam beatae ad perspiciatis in vero magnam. Quidem praesentium aliquid, expedita incidunt blanditiis dolore eveniet culpa alias nemo. At mollitia molestias magni, alias! Eos aut minus omnis dolore unde veniam molestiae aspernatur error quaerat adipisci doloremque ad ut facilis sed, enim assumenda a earum qui inventore corrupti aperiam magnam expedita! Dignissimos eveniet expedita sunt et facilis quaerat vitae dolorum, commodi aspernatur mollitia nostrum sint quam ut recusandae sequi. Quo ipsum obcaecati sapiente temporibus molestiae veniam, corporis ducimus mollitia fugit vitae maiores accusamus cupiditate beatae esse, aliquam autem alias! Recusandae esse animi soluta, id explicabo temporibus laboriosam at dolor dolorem facilis, rem aliquid velit quas, nulla eveniet. Maiores velit eum perferendis repellat inventore aut. Minima quae minus non sequi, id accusantium voluptates molestias optio enim, provident nostrum tenetur ex deserunt! Maxime itaque, in dolor? Sequi possimus dolore labore delectus unde commodi quibusdam aliquam molestias tempore quaerat! Commodi ullam illum velit accusamus vel quaerat et rerum id in itaque! Sunt, vero? Ex quis eveniet hic tempore suscipit exercitationem quod dolorem voluptate est dolorum incidunt maiores, nisi enim ab labore iusto sapiente perferendis laborum, omnis, quasi culpa voluptatem? Minus nulla quos culpa iure? Omnis sequi ipsa nemo nihil veniam rerum, repellat quos, repellendus quis nesciunt libero expedita quas error totam nam, mollitia tempora aspernatur quam at necessitatibus commodi, ex nulla quibusdam eius harum. Incidunt neque consequatur architecto cum non vero at tenetur cumque unde, optio exercitationem nisi voluptatibus beatae qui tempore voluptates, quisquam rem laborum, alias ipsum rerum cupiditate sit repellat soluta! Reiciendis, repellendus molestias voluptate excepturi assumenda recusandae repudiandae atque. Sed, ducimus doloremque dolor cupiditate voluptas expedita enim consectetur, est ipsa earum itaque velit maiores voluptatum nobis facilis aut quos! Ipsam esse similique provident dolorum reprehenderit iure dolor beatae, labore, nam tenetur quidem facere, voluptatem accusamus amet aspernatur tempore fugit veritatis perferendis ratione. Eaque saepe quo minima sapiente quam eligendi corporis ipsam laborum, unde architecto harum quod consectetur earum est deserunt vitae tempore repellat! Nemo hic doloremque culpa, perspiciatis atque? Animi quam fuga atque aut, rerum voluptates quis nobis asperiores ratione sint dolor quae optio incidunt eum iusto numquam amet tenetur laudantium accusantium, aliquid sit. Possimus velit sunt ducimus assumenda maxime tempore impedit commodi reiciendis consequatur cupiditate inventore quod in repudiandae, ex eius ratione doloribus quia. Natus alias molestiae, ratione consequatur velit necessitatibus. Esse iure, molestias. Architecto adipisci est dicta, illum debitis! Nulla iste, alias aliquid! Consectetur, dignissimos. Enim modi, hic quo dolor dignissimos, nesciunt pariatur perspiciatis minima at autem odit dicta placeat illum eius ratione, laboriosam dolores sint qui! Error sapiente quibusdam laudantium, at praesentium accusamus veniam numquam nisi aliquam magnam eum eligendi nulla sunt consequuntur distinctio cum quam voluptas odit aliquid alias. In ipsa eaque, excepturi nam quisquam repudiandae quasi necessitatibus voluptatibus fugit harum nisi temporibus molestiae! Tempora ipsa alias similique, voluptates assumenda at delectus excepturi, iste inventore, ex, neque voluptatem omnis deleniti nulla dolor repellendus quasi eveniet est et quam! Laudantium ut repellendus corrupti, harum at, dolore, suscipit, sunt numquam provident rem nulla ipsam. Repellendus at, maiores reiciendis illo optio possimus alias natus quasi dolore nam quod voluptatibus sed iusto ipsa nostrum tempora numquam id distinctio quam maxime quae, dolorem. Nostrum quae aspernatur excepturi! Veniam quae numquam possimus illo itaque provident perferendis quis accusamus nemo repellendus excepturi rerum, nulla iusto corporis assumenda eos ea, voluptates est, voluptatum harum architecto quo natus placeat. Vitae deserunt laborum ratione eum, tenetur quaerat perferendis explicabo ducimus dolor consequatur qui molestiae, exercitationem suscipit. Magni ut eaque, natus repellendus quae commodi doloribus consequatur, magnam dolore numquam beatae. Similique saepe, rem doloremque sapiente in repellat assumenda!
@@ -124,7 +116,7 @@
 
     <script type="text/javascript" charset="utf-8">
         (() => {
-            document.querySelectorAll(".nav-menu ul>ul>.summary").forEach((o) => {
+            document.querySelectorAll(".nav-menu ul span").forEach((o) => {
                 o.addEventListener("click", (event) => {
                     var p = o.parentElement;
                     if (p.hasAttribute('open')) {
@@ -146,11 +138,12 @@
                     })
             })
             document.addEventListener('click', (event) => {
-                if (document.querySelector(".nav-menu").hasAttribute('open') && !document.querySelector(".nav-menu").contains(event.target)) {
+                if (!document.querySelector(".nav-menu").contains(event.target) && !document.querySelector(".tgl-nav").contains(event.target)) {
+                    console.log('hello')
                     document.querySelector(".nav-menu").removeAttribute('open');
                 }
             })
-            })();
-        </script>
-        </body>
-    </html>
+        })();
+    </script>
+</body>
+</html>
