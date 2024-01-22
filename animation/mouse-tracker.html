@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .rotating-div {
+            position: fixed;
+            width: 3px;
+            height: 10px;
+            border-top: 10px solid #a00;
+            display: hidden;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 30%;
+        }
+        body:hover .rotating-div{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="rotating-div"></div>
+    <div class="rotating-div"></div>
+    <div class="rotating-div"></div>
+    <div class="rotating-div"></div>
+    <div class="rotating-div"></div>
+    <div class="rotating-div"></div>
+
+    <script>
+        const divs = document.querySelectorAll('.rotating-div');
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        const radius = 20; // Adjust the radius as needed
+        const angleIncrement = (2 * Math.PI) / divs.length;
+        let angle = 0;
+
+     //   setInterval(() => {
+        divs.forEach(div => {
+            const x = centerX + radius * Math.cos(angle);
+            const y = centerY + radius * Math.sin(angle);
+            div.style.top = y + 'px';
+            div.style.left = x + 'px';
+            div.style.backgroundColor = (() => {
+                const letters = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            })()
+            angle += angleIncrement;
+        });
+
+            angle += 0.1;
+            divs.forEach((div, index) => {
+                const x = centerX + radius * Math.cos(angle + index * angleIncrement);
+                const y = centerY + radius * Math.sin(angle + index * angleIncrement);
+                div.style.top = y + 'px';
+                div.style.left = x + 'px';
+            });
+   //     },30)
+
+
+
+        document.addEventListener('mousemove', (event) => {
+            const x = event.touches.clientX;
+            const y = event.touches.clientY;
+            angle = Math.round(angle%divs.length);
+            divs[angle].style.top = y + 20 + 'px';
+            divs[angle].style.left = x + 20  + 'px';
+            angle += 1;
+        });
+
+        document.addEventListener('touchmove', (event) => {
+            const x = event.touches[0].clientX;
+            const y = event.touches[0].clientY;
+            angle = Math.round(angle%divs.length);
+            divs[angle].style.top = y + 20 + 'px';
+            divs[angle].style.left = x + 20  + 'px';
+            angle += 1;
+        });
+        
+    </script>
+</body>
+</html>

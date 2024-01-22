@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div.progress, div.progress1, div.progress2{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress" max="100" value="50"></div>
+    <div class="progress1" max="100" value="50"></div>
+    <div class="progress2" max="100" value="50"></div>
+    <script type="text/javascript" charset="utf-8">
+        document.querySelectorAll("div.progress").forEach((o) => {
+            Object.defineProperty(o, 'progress', {
+                get: function() {
+                    return this;
+                },
+                set: function(value) {
+                    o.innerText = value;
+                    o.style.background = "radial-gradient(circle at 50%, #fff 62%, transparent 0%), conic-gradient(#000 "+ value +"%, #eee 0)"
+                }
+            });
+        })
+        document.querySelectorAll("div.progress1").forEach((o) => {
+            Object.defineProperty(o, 'progress', {
+                get: function() {
+                    return this;
+                },
+                set: function(value) {
+                    o.innerText = value;
+                    o.style.background = "radial-gradient(circle at 50%, #fff 62%, transparent 0%), conic-gradient(#0000 "+ value +"%, #eee 0), conic-gradient(red, orange, yellow, green)"
+                }
+            });
+        })
+        document.querySelectorAll("div.progress2").forEach((o) => {
+            Object.defineProperty(o, 'progress', {
+                get: function() {
+                    return this;
+                },
+                set: function(value) {
+                    o.innerText = value;
+                    o.style.background = "radial-gradient(circle at 50%, #fff 62%, transparent 0%), conic-gradient("+ (value<25?"red":value<50?"orange":value<75?"#dd0":"green")+" "+ value +"%, #eee 0)"
+                }
+            });
+        })
+        document.querySelector("div.progress").progress = 40;
+        document.querySelector("div.progress1").progress = 70;
+        var i = 0;
+        setInterval(() => {
+            document.querySelector("div.progress2").progress = i;
+            i += i > 100? -100: 1;
+        },100)
+    </script>
+</body>
+</html>

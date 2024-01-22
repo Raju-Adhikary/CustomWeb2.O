@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>30_buttons</title>
+    <style type="text/css" media="all">
+        .button-container {
+            margin: 60px 20px;
+        }
+        .button-container span {
+            margin: 0px 5px;
+        }
+
+        /* Flat Button */
+        .btn1 {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Rounded Button */
+        .btn2 {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Gradient Button */
+        .btn3 {
+            background-image: linear-gradient(to right, #ff9966, #ff5e62);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-image 0.3s ease;
+        }
+
+        /* Outline Button */
+        .btn4 {
+            background-color: white;
+            color: #3498db;
+            border: 2px solid #3498db;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+
+        /* Icon Button */
+        .btn5 {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn5:before {
+            margin-right: 5px;
+            content: "\1F3E0";
+        }
+
+        /* 3D Button */
+        .btn6 {
+            background-color: #9b59b6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Transparent Button */
+        .btn7 {
+            background-color: transparent;
+            color: #e74c3c;
+            border: 2px solid #e74c3c;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Neon Button */
+        .btn8 {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-shadow: 0 0 10px #27ae60, 0 0 20px #27ae60, 0 0 30px #27ae60;
+        }
+
+        /* Gradient Border Button */
+        .btn9 {
+            background-color: white;
+            color: #fff;
+            border: 2px solid transparent;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            background-clip: padding-box;
+            background-image: linear-gradient(to right, #3498db, #ff9966);
+        }
+
+        /* Pill Button */
+        .btn10 {
+            background-color: #34495e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        /* Toggle Button */
+        .btn11 {
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn11.active {
+            background-color: #e74c3c;
+        }
+
+        /* Textured Button */
+        .btn12 {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            background-image: url("https://source.unsplash.com/120x40/?texture");
+        }
+
+        /* Floating Action Button */
+        .btn13 {
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Embossed Button */
+        .btn14 {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) inset;
+        }
+
+        /* Gradient Fill Button */
+        .btn15 {
+            background-color: transparent;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            background-image: linear-gradient(to right, #3498db, #ff9966);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* Cursive Font Button */
+        .btn16 {
+            background-color: #9b59b6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: cursive;
+        }
+
+        /* Inverted Button */
+        .btn17 {
+            background-color: #ffffff;
+            color: #2c3e50;
+            border: 2px solid #2c3e50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Patterned Button */
+        .btn18 {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            background-image: url("https://source.unsplash.com/120x40/?pattern");
+        }
+
+        /* Framed Button */
+        .btn19 {
+            background-color: white;
+            color: #e74c3c;
+            border: 2px solid #e74c3c;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Underlined Button */
+        .btn20 {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        /* Gradient Text Button */
+        .btn21 {
+            background-color: #e74c3c;
+            color: transparent;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            background-image: linear-gradient(to right, #3498db, #ff9966);
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+
+        /* Shadow Button */
+        .btn22 {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Interactive Animation Button */
+        .btn23 {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .btn23:hover {
+            transform: scale(1.1);
+        }
+
+        /* Full-Width Button */
+        .btn24 {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 0;
+            cursor: pointer;
+            width: 100%;
+            display: block;
+        }
+
+        /* Minimalist Button */
+        .btn25 {
+            background-color: transparent;
+            color: #3498db;
+            border: 2px solid #3498db;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn25:hover {
+            background-color: #3498db;
+            color: white;
+        }
+
+        /* Call-to-Action Button */
+        .btn26 {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Gradient Shadow Button */
+        .btn27 {
+            background-color: white;
+            color: #3498db;
+            border: 2px solid transparent;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(52, 152, 219, 0.3);
+        }
+
+        /* Vintage Button */
+        .btn28 {
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+            background-image: url("https://source.unsplash.com/120x40/?vintage-texture");
+        }
+
+        /* Split Button */
+        .btn29 {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .btn29 .left {
+            background-color: #e74c3c;
+            padding: 10px 20px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .btn29 .right {
+            background-color: #2ecc71;
+            padding: 10px 20px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        /* Animated Background Button */
+        .btn30 {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            animation: pulseBackground 0.5s infinite alternate;
+        }
+
+@keyframes pulseBackground {
+            0% {
+                background-color: #2ecc71;
+            }
+            100% {
+                background-color: #3498db;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--     (div>(span{Button - $}+button.btn.btn${Click me}))*30 -->
+    <div class="button-container">
+        <span>Flat Button : </span><button class="btn btn1">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Rounded Button : </span><button class="btn btn2">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Gradient Button : </span><button class="btn btn3">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Outline Button : </span><button class="btn btn4">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Icon Button : </span><button class="btn btn5">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>3D Button : </span><button class="btn btn6">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Transparent Button : </span><button class="btn btn7">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Neon Button : </span><button class="btn btn8">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Gradient Border Button : </span><button class="btn btn9">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Pill Button : </span><button class="btn btn10">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Toggle Button : </span><button class="btn btn11">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Textured Button : </span><button class="btn btn12">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Floating Action Button : [see bottom-right]</span><button class="btn btn13">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Embossed Button : </span><button class="btn btn14">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Gradient Fill Button : </span><button class="btn btn15">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Cursive Font Button : </span><button class="btn btn16">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Inverted Button : </span><button class="btn btn17">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Patterned Button : </span><button class="btn btn18">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Framed Button : </span><button class="btn btn19">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Underlined Button : </span><button class="btn btn20">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Gradient Text Button : </span><button class="btn btn21">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Shadow Button : </span><button class="btn btn22">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Interactive Animation Button : </span><button class="btn btn23">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Full-Width Button : </span><button class="btn btn24">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Minimalist Button : </span><button class="btn btn25">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Call-to-Action Button : </span><button class="btn btn26">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Gradient Shadow Button : </span><button class="btn btn27">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Vintage Button : </span><button class="btn btn28">Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Split Button : </span><button class="btn btn29"> <span class="left"></span><span class="right"></span> Click me</button>
+    </div>
+    <div class="button-container">
+        <span>Animated Background Button : </span><button class="btn btn30">Click me</button>
+    </div>
+</body>
+</html>
