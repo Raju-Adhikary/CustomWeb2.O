@@ -4,22 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Alert box</title>
     <style type="text/css" media="all">
-        .pop-up{
-            background-color: green;
-            width: 50%;
-            height: 50%;
-            clip-path: polygon(80% 0%, 80% 10%, 100% 18%, 80% 25%, 80% 100%,0% 100%,0% 0%);
+        /* Created by Raju Adhikary */
+@keyframes myAnimation {
+            0% {
+                background-color: rgba(0, 0, 0, 0.0);
+                transform: rotateX(90deg);
+            }
+            50% {
+                transform: rotateY(90deg);
+            }
+            100% {
+                background-color: rgba(0, 0, 0, 0.45);
+            }
+        }
+        #popup {
+            animation-name: myAnimation;
+            animation-duration: 500ms;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.45);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            color: #000;
+            left: 0;
+            display: block;
+        }
+        #popup-box {
+            background-color: #fff;
+            border: 1px solid #f0f;
+            margin: 10% 10% 0 10%;
+            border-bottom-left-radius: 30px;
+            padding: 0 10px 9px 15px;
+        }
+        #popup-head {
+            border-bottom: 1px dotted #000;
+            padding: 4px;
+            overflow: scroll;
+        }
+        #popup-head svg {
+            position: absolute;
+            right: 40px;
+            display: inline-block;
+        }
+        #popup-body {
+            min-height: 80px;
+            margin: 0 0 9px 0;
+            overflow: scroll;
+            max-height: 75vh;
+            overflow: scroll;
         }
     </style>
 </head>
 <body>
-    <div class="pop-up">
-        
-    </div>
+    <button onclick="alert('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga incidunt explicabo commodi mollitia placeat ipsum modi, reprehenderit temporibus architecto possimus obcaecati quod, molestiae. Incidunt cum, nostrum sed inventore reprehenderit facilis.','Lorem ipsum dolor sit amet, consectetur adipisicing elit.','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut illum sunt molestiae. Ipsam sapiente ab ea dolor minus nam quaerat aperiam aspernatur, nulla omnis, placeat ipsa praesentium iure necessitatibus error eveniet minima? Totam, est alias ea. Minus fuga repellat laboriosam, commodi, quos, at ullam odit voluptate ex officia totam expedita.')">button</button>
+
+
     <script type="text/javascript" charset="utf-8">
-        
+        /* Created by Raju Adhikary */
+        function alert(n = "", e = document.location.host+" says", w) {
+            !w || w.length > 30?w = "Close": 0;
+            document.location.host == "" && e == ""?
+            e = "localhost says": 0;
+            var popup = document.getElementById("popup");
+            popupHead = document.getElementById("popup-head");
+            popupBody = document.getElementById("popup-body");
+            popupBox = document.getElementById("popup-box");
+            popup?popup.remove(): 0;
+            o = document.createElement("div");
+            o.id = "popup";
+            o.innerHTML = `
+            <div id="popup-box">
+            <div id="popup-head">
+            <h3 style="display:inline-block;margin:7px 0 0 0;">${e}</h3>
+            <svg onclick="popup.remove();" xmlns="http://www.w3.org/2000/svg" style="float:right;padding:10px;" width="16px" height="16px" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z" />
+            <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z" />
+            </svg>
+            </div>
+            <div id="popup-body">
+            ${n}
+            </div>
+            <center><b onclick="popup.remove()" style="color:blue;">${w}</b></center>
+            </div>
+            `;
+            document.body.appendChild(o);
+        };
     </script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -5,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>nav manu</title>
     <style type="text/css" media="all">
-
 :root {
-        --nav-width: 290px;
-        --nav-bg-color: #fff;
+        --nav-width: 280px;
+        --nav-bg-color: rgb(250,250,250);
         --nav-text-color: #000;
-        /* --nav-bg-color: #000;
-        --nav-text-color: #fff; */
+        /* dark mode */
+/*         --nav-bg-color: #333;
+--nav-text-color: #fff; */
     }
         form {
             margin: 0px;
@@ -22,6 +23,7 @@
         .nav-menu {
             width: var(--nav-width);
             height: 100%;
+            display: block;
             position: fixed;
             left: 0;
             top: 0;
@@ -54,10 +56,18 @@
             text-indent: -10px;
             line-height: 30px;
         }
-        .nav-menu :is(a,span) {
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--nav-text-color);
+        }
+        .nav-menu a::after {
+            content: ">";
+            right: 10%;
+            position: absolute;
+        }
+        .nav-menu li>* {
             display: block;
             line-height: 30px;
-            text-decoration: none;
         }
         .nav-menu>ul>li {
             padding: 10px 5px 10px 20px;
@@ -73,38 +83,17 @@
             color: red;
             right: 10%;
             position: absolute;
-            transform: rotate(270deg);
+            transform: rotate(270deg) scale(1.4);
             transition: transform .5s ease;
-            content: "\25b2";
+            content: "+";
         }
         .nav-menu ul li[open]>span::after {
-            transform: rotate(540deg);
+            transform: rotate(586deg) scale(1.3);
         }
 
-
-
-        .home::before {
-            content: "\1F3E0";
-            margin-right: 8px;
-        }
-        .about::before {
-            content: "\1F4AC";
-            margin-right: 8px;
-        }
-        .contact::before {
-            content: "\1F4AC";
-            margin-right: 8px;
-        }
-        .user-ratting {
-            line-height: 40px;
-        }
-        .user-ratting::before {
-            content: "4.1 \2B50";
-        }
-        .user-ratting::after {
-            content: ">";
-            right: 10%;
-            position: absolute;
+        .nav-menu ul .search {
+            position: sticky;
+            bottom: 10;
         }
 
 @media screen and (min-width: 468px) {
@@ -120,58 +109,148 @@
 
         }
 
+        /* style for nav-bar */
+        .nav-bar{
+            width: 100%;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: var(--nav-bg-color);
+        }
+        .hamburger-button {
+            margin: 10px;
+            width: 20px;
+            height: 15px;
+            transform: translate(0);
+        }
+        .hamburger-button div, .hamburger-button::after, .hamburger-button::before {
+            position: absolute;
+            top: 43%;
+            display: block;
+            width: 100%;
+            height: 15%;
+            background-color: var(--nav-text-color);
+            transition: .4s;
+        }
+        .hamburger-button::after {
+            content: '';
+            left: 0px;
+            top: 0px;
+        }
+        .hamburger-button::before {
+            content: '';
+            left: 0;
+            top: 85%;
+        }
+        nav:has(.nav-menu[open]) .hamburger-button div {
+            opacity: 0;
+        }
+        nav:has(.nav-menu[open]) .hamburger-button.hamburger-button::after {
+            top: 50%;
+            transform-origin: center;
+            transform: rotate(45deg);
+        }
+        nav:has(.nav-menu[open]) .hamburger-button.hamburger-button::before {
+            top: 50%;
+            transform: rotate(-45deg);
+        }
+        
+        .nav-bar .search-button{
+            color: var(--nav-text-color);
+            position: absolute;
+            right: 0;
+            margin: 10px;
+            scale: 1.5;
+        }
+        .nav-bar .search-button:before{
+            content:"🔍";
+        }
 
+
+
+
+        .home::before {
+            content: "\1F3E0";
+            margin-right: 8px;
+        }
+        .about::before {
+            content: "\1F4AC";
+            margin-right: 8px;
+        }
+        .contact::before {
+            content: "\1F4AC";
+            margin-right: 8px;
+        }
+        .user-ratting::before {
+            content: " \2B50  4.1 ";
+            margin: 0px 5px;
+        }
+        
     </style>
 </head>
 <body>
-    <nav class="nav-menu" open>
-        <ul>
-            <li><h1>Logo</h1></li>
-            <li class="user-ratting"> Your Ratting</li>
-            <li><a class="home" href="#">Home</a></li>
-            <li><a class="about" href="#">About</a></li>
-            <li open>
-                <span>Multi-Dropdown</span>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li>
-                        <span>Multi-Dropdown</span>
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <span>Multi-Dropdown</span>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li>
-                        <span>Multi-Dropdown</span>
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </li>
-            <li><a class="contact" href="#">Contact</a></li>
-            <li class="search">
-                <form action="" method="get" accept-charset="utf-8">
-                    <input type="search" name="q" id="search" />
-                    <button type="submit">Search</button>
-                </form>
-            </li>
-        </ul>
+    <nav>
+        <div class="nav-bar">
+            <div class="hamburger-button tgl-nav">
+                <div></div>
+            </div>
+            <div class="search-button"></div>
+        </div>
+        <div class="nav-menu" open>
+            <ul>
+                <li><h1>Logo</h1></li>
+                <li><a class="user-ratting" href="#">Know More</a></li>
+                <li><a class="home" href="#">Home</a></li>
+                <li><a class="about" href="#">About</a></li>
+                <li open>
+                    <span>Multi-Dropdown</span>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li>
+                            <span>Multi-Dropdown</span>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span>Multi-Dropdown</span>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li>
+                            <span>Multi-Dropdown</span>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </li>
+                <li><a class="contact" href="#">Contact</a></li>
+                <li class="search">
+                    <form action="" method="get" accept-charset="utf-8">
+                        <input type="search" name="q" id="search" />
+                        <button type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
     </nav>
-    <button class="tgl-nav">tgl-nav</button>
+    
+        
+    </div>
+    
     <ul>
         <li><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
@@ -220,7 +299,7 @@
                     })
             })
 
-            //before upload/production dblclick -> click
+            //before production dblclick -> click
             // its only for dev-inspection perpose
             document.addEventListener('click', (event) => {
                 if (!document.querySelector(".nav-menu").contains(event.target) && !document.querySelector(".tgl-nav").contains(event.target)) {
